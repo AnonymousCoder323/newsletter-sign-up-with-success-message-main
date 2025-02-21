@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Roboto';
+  src: '/fonts/Roboto-Regular.ttf';
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: '/fonts/Roboto-Bold.ttf';
+  font-weight: 700;
+}
+
+@import 'tailwindcss';
+
+@theme {
+  --color-grey: #949494;
+  --color-blue-700: #36384d;
+  --color-blue-800: #242742;
+  --color-red: #ff6155;
+  --font-roboto: 'Roboto', 'sans-serif';
+}
+
+:root {
+  --color-grey: #949494;
+  --color-blue-700: #36384d;
+  --color-blue-800: #242742;
+  --color-red: #ff6155;
+}
