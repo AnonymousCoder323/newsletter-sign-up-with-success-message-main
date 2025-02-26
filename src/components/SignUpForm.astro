@@ -1,0 +1,61 @@
+---
+import Button from './Button.astro';
+import FeatureListItem from './FeatureListItem.astro';
+---
+
+<article
+  id='sign-up-form'
+  class='bg-white xs:mt-[4.5625rem] xs:max-w-[38rem] xs:rounded-card xs:p-10 xl:mt-0 xl:flex xl:max-w-[56.5rem] xl:flex-row-reverse xl:gap-16'
+>
+  <picture>
+    <source
+      srcset='/images/illustration-sign-up-desktop.svg'
+      media='(min-width: 80rem)'
+    />
+    <img
+      class='mx-auto w-full max-w-[33rem] xs:rounded-2xl xl:max-w-none xl:min-w-[25rem]'
+      src='/images/illustration-sign-up-mobile.svg'
+      alt='Product management illustration'
+      width='375'
+      height='284'
+    />
+  </picture>
+
+  <main
+    class='mt-10 flex flex-col gap-6 px-6 pb-11 xs:px-0 xs:pb-0 xl:self-center'
+  >
+    <h1 class='text-heading/none font-bold'>Stay updated!</h1>
+    <p>Join 60,000+ product managers receiving monthly updates on:</p>
+    <ul class='flex flex-col gap-2'>
+      <FeatureListItem>
+        Product discovery and building what matters
+      </FeatureListItem>
+      <FeatureListItem>
+        Measuring to ensure updates are a success
+      </FeatureListItem>
+      <FeatureListItem> And much more! </FeatureListItem>
+    </ul>
+    <form id='form' class='mt-10' action='' novalidate>
+      <p>
+        <label for='email'>
+          <div class='flex flex-row justify-between'>
+            <span class='text-xs/normal font-bold'>Email address</span>
+            <span
+              id='email-error'
+              class='text-xs/normal font-bold text-red'
+              aria-live='polite'></span>
+          </div>
+          <input
+            class='mt-2 w-full rounded-lg border-[.0625rem] border-grey px-6 py-4 placeholder:text-grey focus:border-blue-800'
+            type='email'
+            id='email'
+            name='email'
+            placeholder='email@company.com'
+            required
+          />
+        </label>
+      </p>
+      <Button class='mt-6'>Subscribe to monthly newsletter</Button>
+    </form>
+  </main>
+</article>

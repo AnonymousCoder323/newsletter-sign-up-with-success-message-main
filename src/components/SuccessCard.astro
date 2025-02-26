@@ -1,0 +1,31 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<article
+  id='success-card'
+  class={`mt-[9.3125rem] px-6 pb-11 bg-white max-w-[31.5rem] xs:px-16 xs:py-15 xs:rounded-card xs:mt-0 ${className}`}
+>
+  <main
+    class='flex min-h-[calc(100vh_-_9.3125rem_-_4.375rem)] flex-col gap-8 xs:min-h-0'
+  >
+    <img
+      src='/images/icon-success.svg'
+      alt='Success Icon'
+      width='64'
+      height='64'
+    />
+    <h1 class='text-heading/none font-bold'>Thanks for subscribing!</h1>
+    <p>
+      A confirmation email has been sent to <b>ash@loremcompany.com</b>. Please
+      open it and click the button inside to confirm your subscription.
+    </p>
+    <Button id='dismiss-button' class='mt-auto'>Dismiss message</Button>
+  </main>
+</article>

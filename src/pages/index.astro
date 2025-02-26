@@ -1,4 +1,6 @@
 ---
+import SignUpForm from '../components/SignUpForm.astro';
+import SuccessCard from '../components/SuccessCard.astro';
 import '../styles/global.css';
 ---
 
@@ -20,35 +22,25 @@ import '../styles/global.css';
       Frontend Mentor | Newsletter sign-up form with success message
     </title>
   </head>
-  <body class='font-roboto'>
-    <!-- Sign-up form start -->
-
-    Stay updated! Join 60,000+ product managers receiving monthly updates on:
-    Product discovery and building what matters Measuring to ensure updates are
-    a success And much more! Email address email@company.com Subscribe to
-    monthly newsletter
-
-    <!-- Sign-up form end -->
-
-    <!-- Success message start -->
-
-    Thanks for subscribing! A confirmation email has been sent to
-    ash@loremcompany.com. Please open it and click the button inside to confirm
-    your subscription. Dismiss message
-
-    <!-- Success message end -->
+  <body
+    class='grid min-h-screen place-content-center bg-white font-roboto text-base font-normal text-blue-800 xs:bg-blue-700 xs:px-10'
+  >
+    <main class=''>
+      <SignUpForm />
+      <SuccessCard class='hidden' />
+    </main>
 
     <footer>
-      <p class='mt-6 text-center text-xs'>
+      <p class='text-center text-xs xs:mt-3 xs:text-white'>
         Challenge by <a
-          class='text-blue-400 underline'
+          class='text-red underline xs:text-red-300'
           href='https://www.frontendmentor.io?ref=challenge'
           target='_blank'
         >
           Frontend Mentor
         </a>. <span class='whitespace-nowrap'
           >Coded by <a
-            class='text-blue-400 underline'
+            class='text-red underline xs:text-red-300'
             href='https://www.frontendmentor.io/profile/AnonymousCoder323'
             >Anonymous Coder</a
           >.</span
@@ -57,3 +49,52 @@ import '../styles/global.css';
     </footer>
   </body>
 </html>
+
+<script>
+  const form = document.getElementById('form');
+  const email = document.getElementById('email') as HTMLInputElement;
+  const emailError =
+    document.getElementById('email-error') || new HTMLElement();
+  const signUpForm = document.getElementById('sign-up-form');
+  const successCard = document.getElementById('success-card');
+  const dismissButton = document.getElementById('dismiss-button');
+
+  const errorClasses = ['text-red', 'bg-red-100', 'border-red'];
+
+  // Remove red error color from email input on focus
+  email.addEventListener('focus', () => {
+    removeClasses(email, errorClasses);
+  });
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (email.checkValidity()) {
+      emailError.innerText = '';
+      email.value = '';
+      removeClasses(email, errorClasses);
+      signUpForm?.classList.add('hidden');
+      signUpForm?.classList.remove('xl:flex');
+      successCard?.classList.remove('hidden');
+    } else {
+      emailError.innerText = 'Valid email required';
+
+      errorClasses.forEach((errorClass) => {
+        email.classList.add(errorClass);
+      });
+    }
+  });
+
+  dismissButton?.addEventListener('click', () => {
+    signUpForm?.classList.remove('hidden');
+    signUpForm?.classList.add('xl:flex');
+
+    successCard?.classList.add('hidden');
+  });
+
+  const removeClasses = (element: HTMLElement, classes: Array<string>) => {
+    classes.forEach((className) => {
+      element.classList.remove(className);
+    });
+  };
+</script>
