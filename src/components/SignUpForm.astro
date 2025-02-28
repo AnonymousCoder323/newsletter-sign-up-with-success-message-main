@@ -5,7 +5,7 @@ import FeatureListItem from './FeatureListItem.astro';
 
 <article
   id='sign-up-form'
-  class='bg-white xs:mt-[4.5625rem] xs:max-w-[38rem] xs:rounded-card xs:p-10 xl:mt-0 xl:flex xl:max-w-[56.5rem] xl:flex-row-reverse xl:gap-16'
+  class='bg-white xs:mt-[4.5625rem] xs:max-w-[38rem] xs:rounded-card xs:p-10 xl:mt-0 xl:flex xl:max-w-[56.5rem] xl:flex-row-reverse xl:gap-16 xl:px-8 xl:py-6'
 >
   <picture>
     <source
@@ -21,7 +21,7 @@ import FeatureListItem from './FeatureListItem.astro';
     />
   </picture>
 
-  <main
+  <div
     class='mt-10 flex flex-col gap-6 px-6 pb-11 xs:px-0 xs:pb-0 xl:self-center'
   >
     <h1 class='text-heading/none font-bold'>Stay updated!</h1>
@@ -35,7 +35,7 @@ import FeatureListItem from './FeatureListItem.astro';
       </FeatureListItem>
       <FeatureListItem> And much more! </FeatureListItem>
     </ul>
-    <form id='form' class='mt-10' action='' novalidate>
+    <form id='form' class='mt-10' novalidate>
       <p>
         <label for='email'>
           <div class='flex flex-row justify-between'>
@@ -57,5 +57,5 @@ import FeatureListItem from './FeatureListItem.astro';
       </p>
       <Button class='mt-6'>Subscribe to monthly newsletter</Button>
     </form>
-  </main>
+  </div>
 </article>
