@@ -9,7 +9,7 @@ const { class: className, id } = Astro.props;
 
 <button
   id={id}
-  class={`w-full rounded-lg bg-blue-800 py-4 text-white hover:cursor-pointer hover-focus:bg-linear-to-r hover-focus:from-gradient-orange hover-focus:to-gradient-red ${className}`}
+  class={`w-full rounded-lg bg-blue-800 py-4 text-white hover:cursor-pointer hover-focus:bg-linear-to-r hover-focus:from-gradient-orange hover-focus:to-gradient-red font-bold ${className}`}
 >
   <slot />
 </button>
